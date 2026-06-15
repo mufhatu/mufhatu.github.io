@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Security headers (meta equivalents) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    <!-- CSP: allow self + Google Fonts + GitHub stats images -->
+    <meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src  'self' 'unsafe-inline';
+        style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src    'self' https://fonts.gstatic.com;
+        img-src     'self' data: https://github-readme-stats.vercel.app https://github-readme-streak-stats.herokuapp.com https://github-profile-trophy.vercel.app https://github-readme-activity-graph.vercel.app;
+        connect-src 'self' https://formspree.io;
+        frame-src   'none';
+        object-src  'none';
+        base-uri    'self';
+        form-action 'self';
+      "
+    />
+
+    <!-- SEO -->
+    <meta name="description" content="Salem Magoloi — Full Stack Developer & MSc Computer Science student at Széchenyi István University, building web apps, ML APIs, and Docker-powered pipelines." />
+    <meta name="keywords" content="Salem Magoloi, Full Stack Developer, FastAPI, Docker, React, Node.js, AWS, Portfolio" />
+    <meta property="og:title" content="Salem Magoloi — Developer Portfolio" />
+    <meta property="og:description" content="Full Stack Developer — 6+ years building web apps, ML APIs, and cloud-ready infrastructure." />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <title>Salem Magoloi — Portfolio</title>
+    <script type="module" crossorigin src="/assets/index-DgX_0mqA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C4xSTG8J.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
