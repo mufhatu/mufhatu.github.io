@@ -281,6 +281,69 @@ export const education = [
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
+// CASE STUDIES
+// ─────────────────────────────────────────────────────────────────────────────
+export const caseStudies = [
+  {
+    id: 1,
+    title: 'NettWebs Hosting CRM',
+    subtitle: 'Production Billing & Client Management System',
+    badge: 'Featured Engineering Case Study',
+    summary: 'A full-stack CRM and automated billing engine built for a real hosting business — managing clients, invoices, renewals, and email workflows in production.',
+    problem: 'The business was running on manual spreadsheets, calendar reminders, and hand-typed emails. No audit trail, no automation, no visibility. Invoices were created manually as PDFs, renewals were missed, and client communication had no structure.',
+    role: 'Sole engineer — designed the architecture, built the full stack, deployed to AWS EC2, and operate it in production.',
+    stack: [
+      { layer: 'API', tech: 'Express 5.x (TypeScript)' },
+      { layer: 'Database', tech: 'PostgreSQL 16 + Prisma ORM' },
+      { layer: 'Frontend', tech: 'React 18 + Vite + Tailwind CSS + shadcn/ui' },
+      { layer: 'PDF Engine', tech: 'PDFKit' },
+      { layer: 'Auth', tech: 'JWT + bcryptjs (rotating refresh tokens)' },
+      { layer: 'Infrastructure', tech: 'Docker Compose + AWS EC2 (af-south-1)' },
+    ],
+    features: [
+      'Client lifecycle management (PENDING → ACTIVE → SUSPENDED → CANCELLED)',
+      'Automated invoice generation with idempotent design (duplicate-safe)',
+      'Server-side PDF creation with stale-detection and email delivery',
+      'Email retry with 3-attempt exponential backoff — SMTP never blocks billing',
+      '5-day renewal reminders + automated overdue escalation',
+      'Immutable audit log capturing all admin and client actions',
+      'JWT with 15-min access tokens + rotating 7-day refresh tokens',
+      'Escalating account lockout: 3 failures → 15 min → 1 hr → 24 hr',
+      'Registration risk scoring: disposable email + IP abuse detection',
+      'Rate limiting on login, password reset, registration, and token refresh',
+    ],
+    challenges: [
+      {
+        challenge: 'Duplicate invoices on retry',
+        solution: 'Idempotent invoice generation using PostgreSQL unique constraints — retries are safe by design.',
+      },
+      {
+        challenge: 'SMTP failures blocking billing records',
+        solution: 'Decoupled email delivery from financial record creation — billing always commits, email retries asynchronously.',
+      },
+      {
+        challenge: 'Docker service discovery',
+        solution: 'Explicit user-defined networks instead of default bridge — services resolve by name reliably.',
+      },
+      {
+        challenge: 'Security from day one',
+        solution: 'Non-root containers, token revocation, audit logging, and rate limiting built into the initial design, not retrofitted.',
+      },
+    ],
+    outcomes: [
+      'Billing fully automated — zero manual invoice creation',
+      'Real clients billed in production, renewals tracked automatically',
+      '11 production incidents documented with full diagnosis and resolution',
+      'Architecture designed with clear migration paths to ECS, RDS, and S3',
+    ],
+    architectureNote: 'Deliberately chose Docker Compose over Kubernetes and a single EC2 instance over ECS — one operator, 8 clients, no need for a control plane. Migration paths designed in without premature complexity.',
+    github: 'https://github.com/mufhatu/nettwebs-hosting-crm-case-study',
+    gradient: 'from-blue-600/20 via-primary-600/20 to-purple-600/20',
+    accentColor: 'blue',
+  },
+]
+
+// ─────────────────────────────────────────────────────────────────────────────
 // CERTIFICATIONS — sourced from CV
 // ─────────────────────────────────────────────────────────────────────────────
 export const certifications = [
@@ -348,6 +411,7 @@ export const navLinks = [
   { label: 'About', to: 'about' },
   { label: 'Skills', to: 'skills' },
   { label: 'Projects', to: 'projects' },
+  { label: 'Case Study', to: 'casestudy' },
   { label: 'Experience', to: 'experience' },
   { label: 'Services', to: 'services' },
   { label: 'Contact', to: 'contact' },
